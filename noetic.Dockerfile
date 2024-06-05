@@ -40,6 +40,7 @@ RUN source /opt/ros/$ROS_DISTRO/setup.bash &&\
     catkin init &&\
     catkin build &&\
     pip3 install robo-gym-server-modules scipy numpy
+    pip3 install --upgrade protobuf==3.20.0
     # Panda requirement
     # pip install --upgrade numpy numpy-quaternion==2020.5.11.13.33.35
 
