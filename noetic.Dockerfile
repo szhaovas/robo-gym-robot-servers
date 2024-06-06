@@ -22,6 +22,7 @@ RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sud
 RUN source /opt/ros/$ROS_DISTRO/setup.bash &&\
     mkdir -p $ROBOGYM_WS/src &&\
     cd $ROBOGYM_WS/src &&\
+    git config --global core.compression 9 &&\
     git clone -b $ROS_DISTRO https://github.com/jr-robotics/mir_robot.git &&\
     git clone -b $ROS_DISTRO https://github.com/jr-robotics/universal_robot.git &&\ 
     # PANDA START
