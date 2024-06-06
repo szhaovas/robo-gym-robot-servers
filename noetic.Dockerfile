@@ -22,9 +22,13 @@ RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sud
 RUN source /opt/ros/$ROS_DISTRO/setup.bash &&\
     mkdir -p $ROBOGYM_WS/src &&\
     cd $ROBOGYM_WS/src &&\
-    git config --global core.compression 9 &&\
     git clone -b $ROS_DISTRO https://github.com/jr-robotics/mir_robot.git &&\
-    git clone -b $ROS_DISTRO https://github.com/jr-robotics/universal_robot.git &&\ 
+    git config --global core.compression 0 &&\
+    git clone --depth 1 -b $ROS_DISTRO https://github.com/jr-robotics/universal_robot.git &&\
+    cd universal_robot &&\
+    git fetch --unshallow &&\
+    git pull --all &&\
+    cd .. &&\ 
     # PANDA START
     # git clone -b v0.7.1-dev https://github.com/jr-robotics/franka_ros_interface &&\
     # git clone https://github.com/jr-robotics/franka_panda_description &&\ 
