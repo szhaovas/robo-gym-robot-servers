@@ -61,6 +61,8 @@ RUN source /opt/ros/$ROS_DISTRO/setup.bash &&\
     rosdep install --from-paths src/robo-gym-robot-servers/ur_robot_server src/robo-gym-robot-servers/mir100_robot_server -i -y --rosdistro $ROS_DISTRO --as-root=apt:false &&\
     catkin build
 
+RUN source $ROBOGYM_WS/devel/setup.bash
+
 ADD ./test.py /
 COPY ./ros-entrypoint.sh /
 ENTRYPOINT ["/ros-entrypoint.sh"]
