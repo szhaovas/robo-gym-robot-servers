@@ -45,7 +45,8 @@ RUN source /opt/ros/$ROS_DISTRO/setup.bash &&\
     catkin build &&\
     pip3 install setuptools==65.5.0 pip==21 &&\
     pip3 install wheel==0.38.0 &&\
-    pip3 install robo-gym-server-modules scipy numpy robo-gym protobuf==3.20.0 gym==0.21 &&\
+    pip3 install robo-gym-server-modules scipy numpy robo-gym &&\
+    pip3 install --upgrade protobuf==3.20.0 gym==0.18.3 &&\
     echo "set -g mouse" >> ~/.tmux.conf
     # Panda requirement
     # pip install --upgrade numpy numpy-quaternion==2020.5.11.13.33.35
